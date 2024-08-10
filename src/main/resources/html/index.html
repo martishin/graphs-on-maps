@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map!</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="routing.css" />
+
+
+  </head>
+  <body>
+    <!----<div id="directions-panel"></div> -->
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <!--- If you get a Something Went Wrong error, when you run the MapApp, you can 
+        probably fix the problem by getting your own API key.
+        Once you do, COMMENT OUT the line directly above this comment 
+        (surround it in the comment markers you see used for this comment:
+        less-than-sign exclamation-point dash dash dash to open the comment, and
+        dash dash greater-than-sign to close it).   
+        Then uncomment the line immediately following this one and 
+        insert your key in the line below where it says [APIKeyHere].
+        You can find instructions for doing this in the 
+        starter code setup guide or just try it on your own by going to 
+        https://developers.google.com/maps/documentation/javascript/ and clicking 
+        "Get a Key".
+        -->
+    <!---<script src="https://maps.googleapis.com/maps/api/js?key=[APIKeyHere]&callback=initMap"></script>-->
+    <script type="text/javascript">
+      window.onload = function() {
+        alert("Page has fully loaded!");
+      };
+
+      var delay = 300;
+      var map, markers;
+      var markerURL = "http://maps.google.com/mapfiles/kml/paddle/red-diamond-lv.png";
+      var destURL = "http://maps.google.com/mapfiles/kml/pal2/icon5.png";
+
+      function visualizeSearch(mapParam, markersParam) {
+        markers = markersParam;
+        map = mapParam;
+        drop();
+      }
+
+      function displayMarker(marker, timeout, URL) {
+        window.setTimeout(function() {
+          marker.setIcon(URL);
+          marker.setMap(map);
+        }, timeout);
+      }
+
+      function drop() {
+        var i;
+        for(i = 1; i < markers.length - 1; ++i) {
+          displayMarker(markers[i], i * delay, markerURL);
+        }
+        displayMarker(markers[markers.length - 1], i * delay, destURL);
+        i++;
+        displayAlert(markers.length, i * delay);
+      }
+
+      function displayAlert(length, delay) {
+        ////window.setTimeout(function() {
+        alert(length + " nodes visited in search.");
+        //}, delay);
+      }
+    </script>
+
+  </body>
+</html>
