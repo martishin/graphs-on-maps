@@ -8,6 +8,6 @@ Available algorithms:
 * Dijkstra
 * A*
 
-Running locally: `./gradlew run `  
+Run locally: `./gradlew run `  
 
 <img src="https://github.com/martishin/graphs-on-maps/blob/main/demo.gif" width="600"/>
