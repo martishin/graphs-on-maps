@@ -1,4 +1,4 @@
-# Shortest Path on Map Visualizer
+# Shortest Path on Map
 
 Desktop application that allows you to find and visualize the shortest path between two points on a map.  
 Implemented with Kotlin, JavaFX and GMapsFX.  
